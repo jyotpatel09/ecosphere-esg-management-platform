@@ -15,14 +15,14 @@ export function Modal({ isOpen, onClose, title, children, footer, className }: M
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 sm:p-0">
-      <div className={cn("bg-surface w-full max-w-lg rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]", className)}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-0 transition-opacity">
+      <div className={cn("ui-panel w-full max-w-lg shadow-modal overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200", className)}>
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-surfaceHighlight">
-          <h2 className="text-lg font-semibold text-textPrimary">{title}</h2>
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/5">
+          <h2 className="text-lg font-semibold text-textPrimary tracking-tight">{title}</h2>
           <button 
             onClick={onClose}
-            className="text-textSecondary hover:text-textPrimary transition-colors p-1 rounded-md hover:bg-surfaceHighlight"
+            className="text-textSecondary hover:text-white transition-colors p-1.5 rounded-md hover:bg-white/10"
           >
             <X size={20} />
           </button>
@@ -35,7 +35,7 @@ export function Modal({ isOpen, onClose, title, children, footer, className }: M
 
         {/* Footer */}
         {footer && (
-          <div className="p-4 sm:p-6 border-t border-surfaceHighlight bg-surface/50 flex justify-end space-x-2">
+          <div className="p-4 sm:p-6 border-t border-white/5 bg-surface/30 flex justify-end space-x-2">
             {footer}
           </div>
         )}

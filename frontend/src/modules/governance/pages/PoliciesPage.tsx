@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { usePolicies } from '../hooks/usePolicies';
-import { Policy, PolicyFormData } from '../types/policy';
+import type {  Policy, PolicyFormData  } from '../types/policy';
 import { PolicyTable } from '../components/PolicyTable';
 import { PolicyForm } from '../components/PolicyForm';
 import { PolicyDetailsDrawer } from '../components/PolicyDetailsDrawer';

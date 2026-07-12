@@ -1,4 +1,4 @@
-import { Policy, PolicyFormData } from '../types/policy';
+import type {  Policy, PolicyFormData  } from '../types/policy';
 import { initialMockPolicies } from '../constants/mockPolicies';
 
 // Simulated in-memory database for mock environment

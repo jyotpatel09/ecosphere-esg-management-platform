@@ -1,4 +1,4 @@
-import { CorrectiveAction, CorrectiveActionFormData } from '../types/correctiveAction';
+import type {  CorrectiveAction, CorrectiveActionFormData  } from '../types/correctiveAction';
 import { initialMockCorrectiveActions } from '../constants/mockCorrectiveActions';
 
 // Simulated in-memory database for mock environment

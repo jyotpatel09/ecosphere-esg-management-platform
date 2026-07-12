@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { ComplianceFormData, ComplianceIssue } from '../types/compliance';
+import type {  ComplianceFormData, ComplianceIssue  } from '../types/compliance';
 import { Button } from '../../../shared/components/Button';
 
 const complianceSchema = z.object({

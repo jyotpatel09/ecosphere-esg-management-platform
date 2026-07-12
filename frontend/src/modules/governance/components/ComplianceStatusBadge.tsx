@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-import { ComplianceStatus, ComplianceSeverity } from '../types/compliance';
+import type {  ComplianceStatus, ComplianceSeverity  } from '../types/compliance';
 
 export function ComplianceStatusBadge({ status }: { status: ComplianceStatus }) {
   const getVariant = () => {

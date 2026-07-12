@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '../../../shared/components/Card';
-import { LucideIcon } from 'lucide-react';
+import type {  LucideIcon  } from 'lucide-react';
 
 interface KPICardProps {
   label: string;

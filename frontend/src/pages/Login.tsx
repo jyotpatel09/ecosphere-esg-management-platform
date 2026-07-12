@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { Button } from '../shared/components/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '../shared/components/Card';
+import api from '../services/api';
 import { Leaf } from 'lucide-react';
 
 export function Login() {
@@ -10,16 +11,26 @@ export function Login() {
   const { login } = useAuthStore();
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const handleMockLogin = () => {
+  const [email, setEmail] = React.useState('admin@ecosphere.local');
+  const [password, setPassword] = React.useState('password123');
+
+  const handleLogin = async () => {
     setIsLoading(true);
-    setTimeout(() => {
-      login(
-        { id: '1', email: 'admin@ecosphere.local', firstName: 'Admin', lastName: 'User', role: 'ADMIN', departmentId: undefined },
-        'mock-jwt-token'
-      );
-      navigate('/');
+    try {
+      const response = await api.post('/auth/login', { email, password });
+      const data = response.data;
+      
+      if (data.success) {
+        login(data.data.user, data.data.token);
+        navigate('/');
+      } else {
+        alert(data.message || 'Login failed');
+      }
+    } catch (error: any) {
+      alert(error.response?.data?.message || 'An error occurred during login');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -36,13 +47,23 @@ export function Login() {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-textSecondary">Email</label>
-              <input type="email" className="mt-1 block w-full rounded-md border border-surfaceHighlight bg-surface px-3 py-2 text-textPrimary shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" defaultValue="admin@ecosphere.local" />
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-1 block w-full rounded-md border border-white/10 bg-surface/50 px-3 py-2 text-textPrimary shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-textSecondary">Password</label>
-              <input type="password" className="mt-1 block w-full rounded-md border border-surfaceHighlight bg-surface px-3 py-2 text-textPrimary shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" defaultValue="password" />
+              <input 
+                type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="mt-1 block w-full rounded-md border border-white/10 bg-surface/50 px-3 py-2 text-textPrimary shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+              />
             </div>
-            <Button className="w-full" onClick={handleMockLogin} isLoading={isLoading}>
+            <Button className="w-full" onClick={handleLogin} isLoading={isLoading}>
               Sign In
             </Button>
           </div>

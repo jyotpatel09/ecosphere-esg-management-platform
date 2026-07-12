@@ -1,4 +1,4 @@
-import { AuditFinding } from '../types/auditFinding';
+import type {  AuditFinding  } from '../types/auditFinding';
 
 export const initialMockAuditFindings: AuditFinding[] = [
   {

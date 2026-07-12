@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { PolicyFormData, PolicyStatus, Policy } from '../types/policy';
+import type {  PolicyFormData, PolicyStatus, Policy  } from '../types/policy';
 import { Button } from '../../../shared/components/Button';
 
 const policySchema = z.object({

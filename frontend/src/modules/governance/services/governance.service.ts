@@ -1,13 +1,9 @@
-import { GovernanceDashboardData } from '../types';
-import { mockGovernanceData } from '../constants/mockGovernanceData';
+import api from '../../../services/api';
+import type { GovernanceDashboardData } from '../types';
 
 export const governanceService = {
   getDashboardData: async (): Promise<GovernanceDashboardData> => {
-    // Simulate network delay for realistic loading states
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(mockGovernanceData);
-      }, 800);
-    });
+    const response = await api.get('/v2/governance/dashboard');
+    return response.data.data;
   },
 };

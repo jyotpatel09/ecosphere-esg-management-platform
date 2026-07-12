@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuditFinding } from '../types/auditFinding';
+import type {  AuditFinding  } from '../types/auditFinding';
 import { Modal } from '../../../shared/components/Modal';
 import { AuditFindingSeverityBadge, AuditFindingStatusBadge } from './AuditFindingSeverityBadge';
 import { Button } from '../../../shared/components/Button';

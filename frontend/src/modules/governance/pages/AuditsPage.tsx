@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useAudits } from '../hooks/useAudits';
-import { Audit, AuditFormData } from '../types/audit';
+import type {  Audit, AuditFormData  } from '../types/audit';
 import { AuditTable } from '../components/AuditTable';
 import { AuditForm } from '../components/AuditForm';
 import { AuditDetailsDrawer } from '../components/AuditDetailsDrawer';
@@ -8,6 +8,7 @@ import { Card, CardContent } from '../../../shared/components/Card';
 import { Button } from '../../../shared/components/Button';
 import { Loader } from '../../../shared/components/Loader';
 import { EmptyState } from '../../../shared/components/EmptyState';
+import { SkeletonLoader } from '../../../shared/components/SkeletonLoader';
 import { Modal } from '../../../shared/components/Modal';
 import { ConfirmationModal } from '../../../shared/components/ConfirmationModal';
 import { Plus, Search, ShieldAlert, Filter } from 'lucide-react';
@@ -87,8 +88,8 @@ export function AuditsPage() {
 
   if (loading) {
     return (
-      <div className="flex h-full min-h-[400px] items-center justify-center">
-        <Loader size="lg" />
+      <div className="flex h-full min-h-[400px] w-full">
+        <SkeletonLoader rows={5} className="w-full" />
       </div>
     );
   }

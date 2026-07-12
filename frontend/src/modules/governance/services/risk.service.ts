@@ -1,4 +1,4 @@
-import { Risk, RiskFormData, RiskLikelihood, RiskImpact, RiskSeverity } from '../types/risk';
+import type {  Risk, RiskFormData, RiskLikelihood, RiskImpact, RiskSeverity  } from '../types/risk';
 import { initialMockRisks } from '../constants/mockRisks';
 
 // Simulated in-memory database for mock environment

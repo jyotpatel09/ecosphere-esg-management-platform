@@ -1,4 +1,4 @@
-import { GovernanceKPIData } from '../types/governanceKPI';
+import type {  GovernanceKPIData  } from '../types/governanceKPI';
 import { mockGovernanceKPIData } from '../constants/mockGovernanceKPIs';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

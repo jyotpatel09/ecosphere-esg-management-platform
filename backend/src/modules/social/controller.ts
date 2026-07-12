@@ -14,7 +14,7 @@ export class SocialController {
 
   async getActivityById(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const activity = await socialService.getActivityById(id);
       if (!activity) {
         return res.status(404).json({ success: false, error: 'Activity not found' });
@@ -37,7 +37,7 @@ export class SocialController {
 
   async updateActivity(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const validatedData = updateCSRActivitySchema.parse(req.body);
       const updatedActivity = await socialService.updateActivity(id, validatedData);
       
@@ -53,7 +53,7 @@ export class SocialController {
 
   async deleteActivity(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const success = await socialService.deleteActivity(id);
       
       if (!success) {

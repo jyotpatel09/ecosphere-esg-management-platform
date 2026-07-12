@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model User {
@@ -22,12 +22,13 @@ model User {
   role         Role          @relation(fields: [roleId], references: [id])
   notifications Notification[]
   activities   ActivityLog[]
+  participations EmployeeParticipation[]
 }
 
 model Role {
   id          String   @id @default(uuid())
   name        String   @unique // e.g., ADMIN, MANAGER, EMPLOYEE
-  permissions String[] // JSON or array of strings representing permissions
+  permissions String   // JSON string representing permissions
   users       User[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -41,6 +42,9 @@ model Department {
   updatedAt       DateTime          @updatedAt
   users           User[]
   departmentScores DepartmentScore[]
+  carbonTransactions CarbonTransaction[]
+  sustainabilityGoals SustainabilityGoal[]
+  complianceIssues ComplianceIssue[]
 }
 
 model Notification {
@@ -104,5 +108,146 @@ model Configuration {
   key         String   @unique
   value       String   // JSON string
   description String?
+  updatedAt   DateTime @updatedAt
+}
+
+// -----------------------------------------
+// ENVIRONMENT MODULE
+// -----------------------------------------
+
+model EmissionFactor {
+  id          String   @id @default(uuid())
+  source      String   @unique
+  value       Float
+  unit        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CarbonTransaction {
+  id              String   @id @default(uuid())
+  date            DateTime
+  source          String
+  quantity        Float
+  unit            String
+  emissions       Float?   // Calculated
+  departmentId    String
+  department      Department @relation(fields: [departmentId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model SustainabilityGoal {
+  id            String   @id @default(uuid())
+  title         String
+  description   String
+  targetDate    DateTime
+  targetValue   Float
+  currentValue  Float    @default(0)
+  metric        String
+  status        String   @default("ON_TRACK") // ON_TRACK, AT_RISK, COMPLETED
+  departmentId  String?
+  department    Department? @relation(fields: [departmentId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// -----------------------------------------
+// SOCIAL MODULE
+// -----------------------------------------
+
+model CSRActivity {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  date        DateTime
+  location    String?
+  points      Int      @default(0)
+  status      String   @default("DRAFT") // DRAFT, ACTIVE, COMPLETED, CANCELLED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  participants EmployeeParticipation[]
+}
+
+model EmployeeParticipation {
+  id          String   @id @default(uuid())
+  userId      String
+  activityId  String
+  status      String   @default("REGISTERED") // REGISTERED, ATTENDED, CANCELLED
+  user        User     @relation(fields: [userId], references: [id])
+  activity    CSRActivity @relation(fields: [activityId], references: [id])
+  createdAt   DateTime @default(now())
+  @@unique([userId, activityId])
+}
+
+model Challenge {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  startDate   DateTime
+  endDate     DateTime
+  points      Int
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// -----------------------------------------
+// GOVERNANCE MODULE
+// -----------------------------------------
+
+model Policy {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  category    String
+  status      String   @default("DRAFT") // DRAFT, ACTIVE, ARCHIVED
+  version     String   @default("1.0")
+  lastReviewed DateTime?
+  nextReview  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ComplianceIssue {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  severity    String   // LOW, MEDIUM, HIGH, CRITICAL
+  status      String   @default("OPEN") // OPEN, IN_PROGRESS, RESOLVED, CLOSED
+  dateIdentified DateTime @default(now())
+  dateResolved DateTime?
+  departmentId String?
+  department  Department? @relation(fields: [departmentId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Audit {
+  id          String   @id @default(uuid())
+  title       String
+  auditor     String
+  date        DateTime
+  status      String   @default("PLANNED") // PLANNED, IN_PROGRESS, COMPLETED
+  score       Float?
+  findings    Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// -----------------------------------------
+// REPORTS MODULE
+// -----------------------------------------
+
+model ESGReport {
+  id          String   @id @default(uuid())
+  title       String
+  type        String   // ANNUAL, QUARTERLY, CUSTOM
+  status      String   @default("PENDING") // PENDING, GENERATED, FAILED
+  periodStart DateTime
+  periodEnd   DateTime
+  fileUrl     String?
+  createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

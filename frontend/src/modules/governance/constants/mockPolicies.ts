@@ -1,4 +1,4 @@
-import { Policy } from '../types/policy';
+import type {  Policy  } from '../types/policy';
 
 export const initialMockPolicies: Policy[] = [
   {

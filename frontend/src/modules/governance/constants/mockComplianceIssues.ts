@@ -1,4 +1,4 @@
-import { ComplianceIssue } from '../types/compliance';
+import type {  ComplianceIssue  } from '../types/compliance';
 
 export const initialMockComplianceIssues: ComplianceIssue[] = [
   {

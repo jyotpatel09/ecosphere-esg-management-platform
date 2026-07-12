@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { ComplianceTrendPoint } from '../types/governanceKPI';
+import type {  ComplianceTrendPoint  } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface ComplianceTrendChartProps {
@@ -41,7 +41,7 @@ export function ComplianceTrendChart({ data }: ComplianceTrendChartProps) {
           width={40}
         />
         <Tooltip
-          formatter={(value: number) => [`${value}%`, 'Compliance Score']}
+          formatter={(value: any) => [`${value}%`, 'Compliance Score']}
           contentStyle={{
             backgroundColor: 'var(--color-surface, #1e293b)',
             border: '1px solid var(--color-surfaceHighlight, #334155)',

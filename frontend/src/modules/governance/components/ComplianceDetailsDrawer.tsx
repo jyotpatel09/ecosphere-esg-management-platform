@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComplianceIssue } from '../types/compliance';
+import type {  ComplianceIssue  } from '../types/compliance';
 import { Modal } from '../../../shared/components/Modal';
 import { ComplianceStatusBadge, ComplianceSeverityBadge } from './ComplianceStatusBadge';
 import { Button } from '../../../shared/components/Button';

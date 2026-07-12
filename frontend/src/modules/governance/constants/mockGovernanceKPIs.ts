@@ -1,4 +1,4 @@
-import { GovernanceKPIData } from '../types/governanceKPI';
+import type {  GovernanceKPIData  } from '../types/governanceKPI';
 
 export const mockGovernanceKPIData: GovernanceKPIData = {
   summary: {

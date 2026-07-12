@@ -1,5 +1,5 @@
 import React from 'react';
-import { Policy } from '../types/policy';
+import type {  Policy  } from '../types/policy';
 import { Modal } from '../../../shared/components/Modal';
 import { PolicyStatusBadge } from './PolicyStatusBadge';
 import { Button } from '../../../shared/components/Button';

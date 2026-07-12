@@ -1,4 +1,4 @@
-import { ESGReport } from '../types/esgReport';
+import type {  ESGReport  } from '../types/esgReport';
 
 export const initialMockESGReports: ESGReport[] = [
   {

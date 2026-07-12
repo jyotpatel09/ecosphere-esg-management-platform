@@ -1,11 +1,9 @@
-import { ReportDashboardData } from '../types/reportDashboard';
-import { mockReportDashboardData } from '../constants/mockReportDashboard';
-
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+import api from '../../../services/api';
+import type { ReportDashboardData } from '../types/reportDashboard';
 
 export const reportDashboardService = {
   getDashboardData: async (): Promise<ReportDashboardData> => {
-    await delay(700);
-    return { ...mockReportDashboardData };
+    const response = await api.get('/v2/reports/dashboard');
+    return response.data.data;
   },
 };

@@ -3,6 +3,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '../../../shared/components/Button';
+import { Input } from '../../../shared/components/Input';
+import { Label } from '../../../shared/components/Label';
+import { Textarea } from '../../../shared/components/Textarea';
+import { Select } from '../../../shared/components/Select';
 import { socialApi } from '../api';
 import type { CSRActivity, CreateCSRActivityDTO } from '../types';
 import { toast } from 'sonner';
@@ -13,7 +17,7 @@ const schema = z.object({
   date: z.string().min(1, 'Date is required'),
   status: z.enum(['DRAFT', 'ACTIVE', 'COMPLETED', 'CANCELLED']),
   location: z.string().optional(),
-  points: z.number().min(0).default(0),
+  points: z.number().min(0),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -63,48 +67,72 @@ export function ActivityForm({ activity, onSuccess, onCancel }: ActivityFormProp
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-textSecondary mb-1">Title</label>
-        <input {...register('title')} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary" />
-        {errors.title && <p className="text-danger text-sm mt-1">{errors.title.message}</p>}
+        <Label htmlFor="title">Title</Label>
+        <Input 
+          id="title"
+          {...register('title')} 
+          placeholder="e.g. Annual Beach Clean-up"
+          error={errors.title?.message}
+        />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-textSecondary mb-1">Description</label>
-        <textarea {...register('description')} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary h-24" />
-        {errors.description && <p className="text-danger text-sm mt-1">{errors.description.message}</p>}
+        <Label htmlFor="description">Description</Label>
+        <Textarea 
+          id="description"
+          {...register('description')} 
+          placeholder="Describe the activity..."
+          error={errors.description?.message}
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-textSecondary mb-1">Date</label>
-          <input type="datetime-local" {...register('date')} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary" />
-          {errors.date && <p className="text-danger text-sm mt-1">{errors.date.message}</p>}
+          <Label htmlFor="date">Date</Label>
+          <Input 
+            id="date"
+            type="datetime-local" 
+            {...register('date')} 
+            error={errors.date?.message}
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-textSecondary mb-1">Status</label>
-          <select {...register('status')} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary">
+          <Label htmlFor="status">Status</Label>
+          <Select 
+            id="status"
+            {...register('status')}
+          >
             <option value="DRAFT">Draft</option>
             <option value="ACTIVE">Active</option>
             <option value="COMPLETED">Completed</option>
             <option value="CANCELLED">Cancelled</option>
-          </select>
+          </Select>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-textSecondary mb-1">Location</label>
-          <input {...register('location')} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary" />
+          <Label htmlFor="location">Location (Optional)</Label>
+          <Input 
+            id="location"
+            {...register('location')} 
+            placeholder="e.g. Seattle HQ"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-textSecondary mb-1">Points</label>
-          <input type="number" {...register('points', { valueAsNumber: true })} className="w-full bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary" />
+          <Label htmlFor="points">Points Awarded</Label>
+          <Input 
+            id="points"
+            type="number" 
+            {...register('points', { valueAsNumber: true })} 
+            error={errors.points?.message}
+          />
         </div>
       </div>
 
-      <div className="flex justify-end space-x-2 pt-4">
+      <div className="flex justify-end space-x-2 pt-4 border-t border-border mt-6">
         <Button type="button" variant="ghost" onClick={onCancel}>Cancel</Button>
-        <Button type="submit" isLoading={isSubmitting}>Save</Button>
+        <Button type="submit" variant="primary" isLoading={isSubmitting}>Save Activity</Button>
       </div>
     </form>
   );

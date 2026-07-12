@@ -1,4 +1,4 @@
-import { CorrectiveAction } from '../types/correctiveAction';
+import type {  CorrectiveAction  } from '../types/correctiveAction';
 
 export const initialMockCorrectiveActions: CorrectiveAction[] = [
   {

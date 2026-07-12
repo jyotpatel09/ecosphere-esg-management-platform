@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { GovernanceKPIData } from '../types/governanceKPI';
+import type {  GovernanceKPIData  } from '../types/governanceKPI';
 import { governanceKPIService } from '../services/governanceKPI.service';
 
 export function useGovernanceKPIs() {

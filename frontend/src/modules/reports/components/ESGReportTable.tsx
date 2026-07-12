@@ -1,5 +1,5 @@
 import React from 'react';
-import { ESGReport } from '../types/esgReport';
+import type {  ESGReport  } from '../types/esgReport';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Button } from '../../../shared/components/Button';
 import { ReportStatusBadge } from './ReportStatusBadge';

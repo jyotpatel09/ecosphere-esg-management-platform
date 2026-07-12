@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { AuditFormData, Audit } from '../types/audit';
+import type {  AuditFormData, Audit  } from '../types/audit';
 import { Button } from '../../../shared/components/Button';
 
 const auditSchema = z.object({

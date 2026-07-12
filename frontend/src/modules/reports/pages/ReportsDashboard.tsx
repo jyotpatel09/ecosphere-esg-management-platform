@@ -8,7 +8,7 @@ import { Skeleton } from '../../../shared/components/SkeletonLoader';
 import { EmptyState } from '../../../shared/components/EmptyState';
 import { Button } from '../../../shared/components/Button';
 import { Card, CardContent } from '../../../shared/components/Card';
-import { BarChart3, RefreshCw, ShieldAlert } from 'lucide-react';
+import { BarChart3, RefreshCw, ShieldAlert, Plus, Download } from 'lucide-react';
 
 function DashboardSkeleton() {
   return (
@@ -62,7 +62,7 @@ export function ReportsDashboard() {
           icon={<ShieldAlert className="h-8 w-8" />}
           title="Failed to load reports dashboard"
           description={error.message || 'An error occurred while fetching report data.'}
-          action={<Button variant="primary" onClick={refresh}>Try Again</Button>}
+          action={<Button onClick={refresh}>Try Again</Button>}
         />
       </div>
     );
@@ -75,37 +75,47 @@ export function ReportsDashboard() {
           icon={<BarChart3 className="h-8 w-8" />}
           title="No reporting data available"
           description="Reports overview will appear here once data is collected."
-          action={<Button variant="primary" onClick={refresh}>Refresh</Button>}
+          action={<Button onClick={refresh}>Refresh</Button>}
         />
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col h-full space-y-6 animate-in fade-in duration-300">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-textPrimary">Reports Dashboard</h1>
-          <p className="text-textSecondary mt-1">Overview of ESG reporting activity across all departments.</p>
+          <h1 className="text-2xl font-bold tracking-tight text-textPrimary">Reporting & Analytics</h1>
+          <p className="text-sm text-textSecondary mt-1">Comprehensive ESG reporting, compliance documentation, and analytics.</p>
         </div>
-        <Button variant="ghost" className="gap-2 self-start sm:self-auto" onClick={refresh}>
-          <RefreshCw className="h-4 w-4" />
-          Refresh
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" onClick={refresh}>
+            <RefreshCw className="h-4 w-4 mr-2" /> 
+            Refresh Data
+          </Button>
+          <Button variant="primary" size="sm">
+            <Plus className="h-4 w-4 mr-1.5" /> 
+            New Report
+          </Button>
+        </div>
       </div>
 
       {/* KPI Cards */}
       <ReportKPICards summary={data.summary} />
 
-      {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ReportTrendChart data={data.trend} />
-        <DepartmentReportChart data={data.departmentDistribution} />
+      {/* Charts & Grid */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 flex-1 min-h-0">
+        <div className="xl:col-span-2 flex flex-col space-y-6">
+          <ReportTrendChart data={data.trend} />
+          <div className="flex-1">
+            <RecentReportsTable reports={data.recentReports} />
+          </div>
+        </div>
+        <div className="xl:col-span-1">
+          <DepartmentReportChart data={data.departmentDistribution} />
+        </div>
       </div>
-
-      {/* Recent Reports Table */}
-      <RecentReportsTable reports={data.recentReports} />
     </div>
   );
 }

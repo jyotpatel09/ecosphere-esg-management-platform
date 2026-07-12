@@ -1,4 +1,4 @@
-import { Audit, AuditFormData } from '../types/audit';
+import type {  Audit, AuditFormData  } from '../types/audit';
 import { initialMockAudits } from '../constants/mockAudits';
 
 // Simulated in-memory database for mock environment

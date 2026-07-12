@@ -1,4 +1,4 @@
-import { Risk } from '../types/risk';
+import type {  Risk  } from '../types/risk';
 
 export const initialMockRisks: Risk[] = [
   {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Audit } from '../types/audit';
+import type {  Audit  } from '../types/audit';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Button } from '../../../shared/components/Button';
 import { AuditStatusBadge, AuditTypeBadge } from './AuditStatusBadge';

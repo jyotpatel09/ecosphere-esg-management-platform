@@ -1,4 +1,4 @@
-import { AuditFinding, AuditFindingFormData } from '../types/auditFinding';
+import type {  AuditFinding, AuditFindingFormData  } from '../types/auditFinding';
 import { initialMockAuditFindings } from '../constants/mockAuditFindings';
 
 // Simulated in-memory database for mock environment

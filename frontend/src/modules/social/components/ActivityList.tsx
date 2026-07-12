@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Badge } from '../../../shared/components/Badge';
 import type { CSRActivity } from '../types';
 import { Button } from '../../../shared/components/Button';
-import { Loader } from '../../../shared/components/Loader';
+import { SkeletonLoader } from '../../../shared/components/SkeletonLoader';
 import { EmptyState } from '../../../shared/components/EmptyState';
 import { Pagination } from '../../../shared/components/Pagination';
 
@@ -36,7 +36,7 @@ export function ActivityList({ activities, isLoading, onDelete, onEdit }: Activi
   );
 
   if (isLoading) {
-    return <div className="flex justify-center p-8"><Loader size="lg" /></div>;
+    return <SkeletonLoader rows={5} />;
   }
 
   const getStatusVariant = (status: string) => {
@@ -44,7 +44,7 @@ export function ActivityList({ activities, isLoading, onDelete, onEdit }: Activi
       case 'ACTIVE': return 'success';
       case 'COMPLETED': return 'primary';
       case 'CANCELLED': return 'danger';
-      default: return 'neutral';
+      default: return 'default';
     }
   };
 
@@ -56,12 +56,12 @@ export function ActivityList({ activities, isLoading, onDelete, onEdit }: Activi
           placeholder="Search activities..."
           value={searchTerm}
           onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
-          className="bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-64"
+          className="bg-transparent border border-border rounded-md px-3 py-2 text-textPrimary text-sm focus:outline-none focus:border-textSecondary transition-colors w-full sm:w-64"
         />
         <select
           value={statusFilter}
           onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
-          className="bg-surfaceHighlight border border-surfaceHighlight rounded-md px-3 py-2 text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-48"
+          className="bg-transparent border border-border rounded-md px-3 py-2 text-textPrimary text-sm focus:outline-none focus:border-textSecondary transition-colors w-full sm:w-48 appearance-none"
         >
           <option value="ALL">All Statuses</option>
           <option value="DRAFT">Draft</option>

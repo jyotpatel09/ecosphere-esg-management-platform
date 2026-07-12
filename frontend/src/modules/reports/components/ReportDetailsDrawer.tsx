@@ -1,5 +1,5 @@
 import React from 'react';
-import { ESGReport } from '../types/esgReport';
+import type {  ESGReport  } from '../types/esgReport';
 import { Modal } from '../../../shared/components/Modal';
 import { ReportStatusBadge } from './ReportStatusBadge';
 import { Button } from '../../../shared/components/Button';

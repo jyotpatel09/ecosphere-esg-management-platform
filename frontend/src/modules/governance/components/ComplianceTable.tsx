@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComplianceIssue } from '../types/compliance';
+import type {  ComplianceIssue  } from '../types/compliance';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Button } from '../../../shared/components/Button';
 import { ComplianceStatusBadge, ComplianceSeverityBadge } from './ComplianceStatusBadge';

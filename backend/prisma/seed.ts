@@ -12,7 +12,7 @@ async function main() {
     update: {},
     create: {
       name: 'ADMIN',
-      permissions: ['USER_CREATE', 'USER_READ', 'USER_UPDATE', 'USER_DELETE', 'ESG_DATA_WRITE', 'ESG_DATA_READ', 'REPORTS_GENERATE', 'SETTINGS_MANAGE'],
+      permissions: JSON.stringify(['USER_CREATE', 'USER_READ', 'USER_UPDATE', 'USER_DELETE', 'ESG_DATA_WRITE', 'ESG_DATA_READ', 'REPORTS_GENERATE', 'SETTINGS_MANAGE']),
     },
   });
 
@@ -21,7 +21,7 @@ async function main() {
     update: {},
     create: {
       name: 'ESG_MANAGER',
-      permissions: ['USER_READ', 'ESG_DATA_WRITE', 'ESG_DATA_READ', 'REPORTS_GENERATE'],
+      permissions: JSON.stringify(['USER_READ', 'ESG_DATA_WRITE', 'ESG_DATA_READ', 'REPORTS_GENERATE']),
     },
   });
 
@@ -30,7 +30,7 @@ async function main() {
     update: {},
     create: {
       name: 'EMPLOYEE',
-      permissions: ['ESG_DATA_READ'],
+      permissions: JSON.stringify(['ESG_DATA_READ']),
     },
   });
 
@@ -125,6 +125,68 @@ async function main() {
       key: 'SYSTEM_SETTINGS',
       value: JSON.stringify({ theme: 'dark', notificationsEnabled: true }),
     },
+  });
+
+  // 7. Seed Environment Data
+  await prisma.emissionFactor.create({
+    data: {
+      source: 'Electricity (Grid)',
+      value: 0.5,
+      unit: 'kgCO2e/kWh',
+      description: 'Standard grid electricity emission factor'
+    }
+  });
+
+  await prisma.sustainabilityGoal.create({
+    data: {
+      title: 'Reduce Energy Consumption',
+      description: 'Reduce office electricity usage by 15%',
+      targetDate: new Date('2026-12-31'),
+      targetValue: 15,
+      metric: 'Percentage',
+      departmentId: corpDept.id
+    }
+  });
+
+  // 8. Seed Social Data
+  const activity = await prisma.cSRActivity.create({
+    data: {
+      title: 'Beach Cleanup 2026',
+      description: 'Annual corporate beach cleanup event.',
+      date: new Date('2026-08-15'),
+      location: 'Santa Monica Beach',
+      points: 100,
+      status: 'ACTIVE'
+    }
+  });
+
+  await prisma.employeeParticipation.create({
+    data: {
+      userId: employee.id,
+      activityId: activity.id,
+      status: 'REGISTERED'
+    }
+  });
+
+  // 9. Seed Governance Data
+  await prisma.policy.create({
+    data: {
+      title: 'Data Privacy Policy',
+      description: 'Guidelines for handling customer and employee data.',
+      category: 'Privacy',
+      status: 'ACTIVE',
+      version: '2.1'
+    }
+  });
+
+  await prisma.complianceIssue.create({
+    data: {
+      title: 'Missing Vendor Certifications',
+      description: 'Several key vendors are missing their ISO certifications.',
+      severity: 'HIGH',
+      status: 'OPEN',
+      departmentId: mfgDept.id
+    }
   });
 
   console.log('Seed completed successfully.');

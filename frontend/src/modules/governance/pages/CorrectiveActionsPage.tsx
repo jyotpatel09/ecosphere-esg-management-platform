@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useCorrectiveActions } from '../hooks/useCorrectiveActions';
-import { CorrectiveAction, CorrectiveActionFormData } from '../types/correctiveAction';
+import type {  CorrectiveAction, CorrectiveActionFormData  } from '../types/correctiveAction';
 import { CorrectiveActionTable } from '../components/CorrectiveActionTable';
 import { CorrectiveActionForm } from '../components/CorrectiveActionForm';
 import { CorrectiveActionDetailsDrawer } from '../components/CorrectiveActionDetailsDrawer';

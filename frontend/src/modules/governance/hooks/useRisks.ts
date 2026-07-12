@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Risk, RiskFormData } from '../types/risk';
+import type {  Risk, RiskFormData  } from '../types/risk';
 import { riskService } from '../services/risk.service';
 
 export function useRisks() {

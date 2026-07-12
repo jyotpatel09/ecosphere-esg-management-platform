@@ -1,4 +1,4 @@
-import { ComplianceIssue, ComplianceFormData } from '../types/compliance';
+import type {  ComplianceIssue, ComplianceFormData  } from '../types/compliance';
 import { initialMockComplianceIssues } from '../constants/mockComplianceIssues';
 
 // Simulated in-memory database for mock environment

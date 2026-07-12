@@ -3,7 +3,7 @@ import { cn } from './Button';
 
 export const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className="relative w-full overflow-auto">
+    <div className="relative w-full overflow-auto rounded-md border border-border bg-surface">
       <table ref={ref} className={cn('w-full caption-bottom text-sm', className)} {...props} />
     </div>
   )
@@ -12,14 +12,14 @@ Table.displayName = 'Table';
 
 export const TableHeader = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
   ({ className, ...props }, ref) => (
-    <thead ref={ref} className={cn('[&_tr]:border-b border-surfaceHighlight', className)} {...props} />
+    <thead ref={ref} className={cn('bg-surfaceHighlight/30 [&_tr]:border-b border-border', className)} {...props} />
   )
 );
 TableHeader.displayName = 'TableHeader';
 
 export const TableBody = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
   ({ className, ...props }, ref) => (
-    <tbody ref={ref} className={cn('[&_tr:last-child]:border-0', className)} {...props} />
+    <tbody ref={ref} className={cn('[&_tr:last-child]:border-0 divide-y divide-border', className)} {...props} />
   )
 );
 TableBody.displayName = 'TableBody';
@@ -28,7 +28,7 @@ export const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttribut
   ({ className, ...props }, ref) => (
     <tr
       ref={ref}
-      className={cn('border-b border-surfaceHighlight transition-colors hover:bg-surfaceHighlight/50 data-[state=selected]:bg-surfaceHighlight', className)}
+      className={cn('transition-colors hover:bg-surfaceHighlight/20 data-[state=selected]:bg-surfaceHighlight/40', className)}
       {...props}
     />
   )
@@ -39,7 +39,7 @@ export const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttr
   ({ className, ...props }, ref) => (
     <th
       ref={ref}
-      className={cn('h-12 px-4 text-left align-middle font-medium text-textSecondary [&:has([role=checkbox])]:pr-0', className)}
+      className={cn('h-10 px-4 text-left align-middle text-[11px] font-bold text-textSecondary uppercase tracking-wider whitespace-nowrap', className)}
       {...props}
     />
   )
@@ -48,7 +48,7 @@ TableHead.displayName = 'TableHead';
 
 export const TableCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttributes<HTMLTableCellElement>>(
   ({ className, ...props }, ref) => (
-    <td ref={ref} className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0 text-textPrimary', className)} {...props} />
+    <td ref={ref} className={cn('py-3 px-4 align-middle text-[13px] text-textPrimary', className)} {...props} />
   )
 );
 TableCell.displayName = 'TableCell';

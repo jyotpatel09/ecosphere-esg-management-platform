@@ -1,4 +1,4 @@
-import { GovernanceDashboardData } from '../types';
+import type { GovernanceDashboardData } from '../types';
 
 export const mockGovernanceData: GovernanceDashboardData = {
   kpis: {

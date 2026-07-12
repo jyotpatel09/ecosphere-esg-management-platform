@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useAuditFindings } from '../hooks/useAuditFindings';
-import { AuditFinding, AuditFindingFormData } from '../types/auditFinding';
+import type {  AuditFinding, AuditFindingFormData  } from '../types/auditFinding';
 import { AuditFindingTable } from '../components/AuditFindingTable';
 import { AuditFindingForm } from '../components/AuditFindingForm';
 import { AuditFindingDetailsDrawer } from '../components/AuditFindingDetailsDrawer';

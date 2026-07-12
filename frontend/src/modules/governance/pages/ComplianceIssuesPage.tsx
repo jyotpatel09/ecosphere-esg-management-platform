@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useComplianceIssues } from '../hooks/useComplianceIssues';
-import { ComplianceIssue, ComplianceFormData } from '../types/compliance';
+import type {  ComplianceIssue, ComplianceFormData  } from '../types/compliance';
 import { ComplianceTable } from '../components/ComplianceTable';
 import { ComplianceForm } from '../components/ComplianceForm';
 import { ComplianceDetailsDrawer } from '../components/ComplianceDetailsDrawer';

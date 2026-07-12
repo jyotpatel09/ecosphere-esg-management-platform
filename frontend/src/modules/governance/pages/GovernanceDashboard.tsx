@@ -4,7 +4,7 @@ import { DashboardHeader } from '../components/DashboardHeader';
 import { GovernanceKPIs } from '../components/GovernanceKPIs';
 import { RecentAuditsTable } from '../components/RecentAuditsTable';
 import { RecentComplianceTable } from '../components/RecentComplianceTable';
-import { Loader } from '../../../shared/components/Loader';
+import { SkeletonLoader } from '../../../shared/components/SkeletonLoader';
 import { EmptyState } from '../../../shared/components/EmptyState';
 import { Button } from '../../../shared/components/Button';
 import { ShieldAlert } from 'lucide-react';
@@ -13,11 +13,7 @@ export function GovernanceDashboard() {
   const { data, loading, error, refresh } = useGovernanceDashboard();
 
   if (loading) {
-    return (
-      <div className="flex h-full min-h-[400px] items-center justify-center">
-        <Loader size="lg" />
-      </div>
-    );
+    return <SkeletonLoader rows={6} />;
   }
 
   if (error) {
@@ -49,13 +45,17 @@ export function GovernanceDashboard() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       <DashboardHeader />
       <GovernanceKPIs data={data.kpis} />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RecentAuditsTable audits={data.recentAudits} />
-        <RecentComplianceTable issues={data.recentComplianceIssues} />
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="xl:col-span-2">
+          <RecentAuditsTable audits={data.recentAudits} />
+        </div>
+        <div className="xl:col-span-1">
+          <RecentComplianceTable issues={data.recentComplianceIssues} />
+        </div>
       </div>
     </div>
   );

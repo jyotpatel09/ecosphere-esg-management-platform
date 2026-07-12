@@ -9,7 +9,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from 'recharts';
-import { RiskDistributionPoint } from '../types/governanceKPI';
+import type {  RiskDistributionPoint  } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface RiskDistributionChartProps {
@@ -42,7 +42,7 @@ export function RiskDistributionChart({ data }: RiskDistributionChartProps) {
           width={30}
         />
         <Tooltip
-          formatter={(value: number) => [value, 'Risks']}
+          formatter={(value: any) => [value, 'Risks']}
           contentStyle={{
             backgroundColor: 'var(--color-surface, #1e293b)',
             border: '1px solid var(--color-surfaceHighlight, #334155)',

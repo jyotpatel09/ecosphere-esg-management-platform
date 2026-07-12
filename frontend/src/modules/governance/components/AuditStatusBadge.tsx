@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-import { AuditStatus, AuditType } from '../types/audit';
+import type {  AuditStatus, AuditType  } from '../types/audit';
 
 export function AuditStatusBadge({ status }: { status: AuditStatus }) {
   const getVariant = () => {
@@ -20,7 +20,7 @@ export function AuditTypeBadge({ type }: { type: AuditType }) {
   const getVariant = () => {
     switch (type) {
       case 'Compliance': return 'danger';
-      case 'Internal': return 'primary';
+      case 'Internal': return 'info';
       case 'External': return 'warning';
       case 'ESG Review': return 'info';
       default: return 'default';

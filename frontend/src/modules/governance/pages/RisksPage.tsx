@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useRisks } from '../hooks/useRisks';
-import { Risk, RiskFormData } from '../types/risk';
+import type {  Risk, RiskFormData  } from '../types/risk';
 import { RiskTable } from '../components/RiskTable';
 import { RiskForm } from '../components/RiskForm';
 import { RiskDetailsDrawer } from '../components/RiskDetailsDrawer';

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { GovernanceDashboardData } from '../types';
+import type { GovernanceDashboardData } from '../types';
 import { governanceService } from '../services/governance.service';
 
 export function useGovernanceDashboard() {

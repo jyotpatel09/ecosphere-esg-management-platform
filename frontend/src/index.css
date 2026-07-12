@@ -3,27 +3,93 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Background: Very dark slate (Slate 950 - #020617) */
+    --background: 222 47% 5%;
+    /* Foreground: High contrast text (Slate 50 - #f8fafc) */
+    --foreground: 210 40% 98%;
+    
+    /* Card / Surface 1: Layered slate (Slate 900 - #0f172a) */
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+    
+    /* Popover: (Slate 900) */
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Primary: Emerald (Emerald 500 - #10b981) */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary: Slate (Slate 800 - #1e293b) */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Muted: Slate 800 background, Slate 400 text */
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Accent: Blue (Blue 500 - #3b82f6) */
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive: Rose (Rose 500 - #f43f5e) */
+    --destructive: 350 89% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning: Amber (Amber 500 - #f59e0b) */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Success: Emerald (Emerald 500 - #10b981) */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders: Soft gray/slate (Slate 700 - #334155) */
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    
+    /* Ring: Emerald focus ring */
+    --ring: 160 84% 39%;
+
+    /* Radius: Professional sharp radius for ERP */
+    --radius: 0.375rem;
+    
+    /* Surface tokens for legacy compatibility */
+    --surface: 222 47% 10%; /* Slate 900 */
+    --surface-highlight: 215 28% 17%; /* Slate 800 */
+  }
+
   body {
-    @apply bg-background text-textPrimary antialiased font-sans;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-@layer components {
-  /* Scrollbar styling for a premium feel */
+@layer utilities {
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    @apply bg-background; 
+    background-color: transparent;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-surfaceHighlight rounded-full;
+    background-color: hsl(var(--surface-highlight));
+    @apply rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-600; 
+    background-color: hsl(var(--muted-foreground));
+  }
+
+  .ui-panel {
+    background-color: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    @apply rounded-md shadow-sm;
   }
 }

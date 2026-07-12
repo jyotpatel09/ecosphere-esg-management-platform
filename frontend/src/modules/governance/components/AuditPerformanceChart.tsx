@@ -7,7 +7,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { AuditPerformancePoint } from '../types/governanceKPI';
+import type {  AuditPerformancePoint  } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface AuditPerformanceChartProps {
@@ -43,7 +43,7 @@ export function AuditPerformanceChart({ data }: AuditPerformanceChartProps) {
           ))}
         </Pie>
         <Tooltip
-          formatter={(value: number, name: string) => [value, name]}
+          formatter={(value: any, name: any) => [value, name]}
           contentStyle={{
             backgroundColor: 'var(--color-surface, #1e293b)',
             border: '1px solid var(--color-surfaceHighlight, #334155)',

@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts';
-import { DepartmentReportPoint } from '../types/reportDashboard';
+import type { DepartmentReportPoint } from '../types/reportDashboard';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface DepartmentReportChartProps {
@@ -17,53 +17,54 @@ interface DepartmentReportChartProps {
 }
 
 const BAR_COLORS = [
-  '#3b82f6',
-  '#22c55e',
-  '#f59e0b',
-  '#8b5cf6',
-  '#ef4444',
-  '#14b8a6',
+  '#10b981', // Emerald 500
+  '#3b82f6', // Blue 500
+  '#f59e0b', // Amber 500
+  '#8b5cf6', // Violet 500
+  '#f43f5e', // Rose 500
+  '#06b6d4', // Cyan 500
 ];
 
 export function DepartmentReportChart({ data }: DepartmentReportChartProps) {
   return (
-    <ChartWrapper title="Reports by Department" height={280}>
+    <ChartWrapper title="Reports by Department" height={300}>
       <BarChart
         data={data}
         layout="vertical"
-        margin={{ top: 10, right: 20, left: 10, bottom: 0 }}
+        margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
       >
         <CartesianGrid
           strokeDasharray="3 3"
-          stroke="var(--color-surfaceHighlight, #334155)"
+          stroke="#1e293b"
           horizontal={false}
         />
         <XAxis
           type="number"
           allowDecimals={false}
-          tick={{ fontSize: 12, fill: 'var(--color-textSecondary, #94a3b8)' }}
+          tick={{ fontSize: 11, fill: '#64748b' }}
           axisLine={false}
           tickLine={false}
         />
         <YAxis
           type="category"
           dataKey="department"
-          width={90}
-          tick={{ fontSize: 11, fill: 'var(--color-textSecondary, #94a3b8)' }}
+          width={80}
+          tick={{ fontSize: 11, fill: '#64748b' }}
           axisLine={false}
           tickLine={false}
         />
         <Tooltip
-          formatter={(value: number) => [value, 'Reports']}
+          formatter={(value: any) => [value, 'Reports']}
           contentStyle={{
-            backgroundColor: 'var(--color-surface, #1e293b)',
-            border: '1px solid var(--color-surfaceHighlight, #334155)',
-            borderRadius: '8px',
-            color: 'var(--color-textPrimary, #f1f5f9)',
+            backgroundColor: '#0f172a',
+            border: '1px solid #1e293b',
+            borderRadius: '6px',
+            color: '#f8fafc',
             fontSize: 12,
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.5)',
           }}
         />
-        <Bar dataKey="count" radius={[0, 6, 6, 0]} maxBarSize={20}>
+        <Bar dataKey="count" radius={[0, 4, 4, 0]} maxBarSize={16}>
           {data.map((_, index) => (
             <Cell key={index} fill={BAR_COLORS[index % BAR_COLORS.length]} />
           ))}

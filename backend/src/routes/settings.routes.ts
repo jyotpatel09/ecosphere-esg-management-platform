@@ -1,11 +1,13 @@
 import { Router } from 'express';
-import { authenticate, authorize } from '../middleware/auth.middleware';
+import { authenticate } from '../middleware/auth.middleware';
+import { getSystemPreferences, updateSystemPreferences, getUsers } from '../controllers/settings.controller';
 
 const router = Router();
 
-// Placeholder for Settings Module
-router.get('/config', authenticate, authorize(['ADMIN']), (req, res) => {
-  res.json({ message: 'System configuration (placeholder)' });
-});
+router.use(authenticate);
+
+router.get('/preferences', getSystemPreferences);
+router.put('/preferences', updateSystemPreferences);
+router.get('/users', getUsers);
 
 export default router;

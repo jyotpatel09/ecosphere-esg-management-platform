@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Policy, PolicyFormData } from '../types/policy';
+import type {  Policy, PolicyFormData  } from '../types/policy';
 import { policyService } from '../services/policy.service';
 
 export function usePolicies() {
