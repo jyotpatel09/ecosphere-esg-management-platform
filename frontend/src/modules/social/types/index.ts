@@ -2,24 +2,13 @@ export interface CSRActivity {
   id: string;
   title: string;
   description: string;
-  date: Date;
+  date: string;
   status: 'DRAFT' | 'ACTIVE' | 'COMPLETED' | 'CANCELLED';
   location?: string;
   maxParticipants?: number;
   points: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface EmployeeParticipation {
-  id: string;
-  userId: string;
-  activityId: string;
-  status: 'REGISTERED' | 'ATTENDED' | 'NO_SHOW';
-  hours: number;
-  feedback?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface SocialKPI {
@@ -28,8 +17,8 @@ export interface SocialKPI {
   totalVolunteerHours: number;
   diversityScore: number;
   communityInvestment: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface CreateCSRActivityDTO {
@@ -42,4 +31,4 @@ export interface CreateCSRActivityDTO {
   points: number;
 }
 
-export interface UpdateCSRActivityDTO extends Partial<CreateCSRActivityDTO> {}
+export type UpdateCSRActivityDTO = Partial<CreateCSRActivityDTO>;
