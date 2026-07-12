@@ -7,11 +7,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-<<<<<<< HEAD
 import type {  AuditPerformancePoint  } from '../types/governanceKPI';
-=======
-import type { AuditPerformancePoint } from '../types/governanceKPI';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface AuditPerformanceChartProps {

@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import type {  Audit  } from '../types/audit';
-=======
-import type { Audit } from '../types/audit';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { Modal } from '../../../shared/components/Modal';
 import { AuditStatusBadge, AuditTypeBadge } from './AuditStatusBadge';
 import { Button } from '../../../shared/components/Button';

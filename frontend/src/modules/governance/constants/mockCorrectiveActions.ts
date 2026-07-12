@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import type {  CorrectiveAction  } from '../types/correctiveAction';
-=======
-import type { CorrectiveAction } from '../types/correctiveAction';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export const initialMockCorrectiveActions: CorrectiveAction[] = [
   {

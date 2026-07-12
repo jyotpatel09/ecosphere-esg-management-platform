@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import type {  Policy  } from '../types/policy';
-=======
-import type { Policy } from '../types/policy';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export const initialMockPolicies: Policy[] = [
   {

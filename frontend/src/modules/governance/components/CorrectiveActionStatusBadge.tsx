@@ -1,10 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-<<<<<<< HEAD
 import type {  CorrectiveActionStatus, CorrectiveActionPriority  } from '../types/correctiveAction';
-=======
-import type { CorrectiveActionStatus, CorrectiveActionPriority } from '../types/correctiveAction';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export function CorrectiveActionStatusBadge({ status }: { status: CorrectiveActionStatus }) {
   const getVariant = () => {

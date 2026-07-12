@@ -1,9 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-<<<<<<< HEAD
 import type {  ComplianceIssue, ComplianceFormData  } from '../types/compliance';
-=======
-import type { ComplianceIssue, ComplianceFormData } from '../types/compliance';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { complianceService } from '../services/compliance.service';
 
 export function useComplianceIssues() {

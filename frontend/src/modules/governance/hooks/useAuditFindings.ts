@@ -1,9 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-<<<<<<< HEAD
 import type {  AuditFinding, AuditFindingFormData  } from '../types/auditFinding';
-=======
-import type { AuditFinding, AuditFindingFormData } from '../types/auditFinding';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { auditFindingService } from '../services/auditFinding.service';
 
 export function useAuditFindings() {

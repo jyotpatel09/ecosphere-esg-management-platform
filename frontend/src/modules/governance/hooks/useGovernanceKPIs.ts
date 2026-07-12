@@ -1,9 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-<<<<<<< HEAD
 import type {  GovernanceKPIData  } from '../types/governanceKPI';
-=======
-import type { GovernanceKPIData } from '../types/governanceKPI';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { governanceKPIService } from '../services/governanceKPI.service';
 
 export function useGovernanceKPIs() {

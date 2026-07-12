@@ -1,10 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-<<<<<<< HEAD
 import type {  AuditFindingSeverity, AuditFindingStatus  } from '../types/auditFinding';
-=======
-import type { AuditFindingSeverity, AuditFindingStatus } from '../types/auditFinding';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export function AuditFindingSeverityBadge({ severity }: { severity: AuditFindingSeverity }) {
   const getVariant = () => {

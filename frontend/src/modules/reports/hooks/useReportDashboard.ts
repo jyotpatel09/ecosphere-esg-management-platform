@@ -1,9 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-<<<<<<< HEAD
 import type {  ReportDashboardData  } from '../types/reportDashboard';
-=======
-import type { ReportDashboardData } from '../types/reportDashboard';
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { reportDashboardService } from '../services/reportDashboard.service';
 
 export function useReportDashboard() {
