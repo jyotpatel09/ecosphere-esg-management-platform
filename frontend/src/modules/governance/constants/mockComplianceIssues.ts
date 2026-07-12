@@ -1,0 +1,53 @@
+import { ComplianceIssue } from '../types/compliance';
+
+export const initialMockComplianceIssues: ComplianceIssue[] = [
+  {
+    id: 'ci1',
+    title: 'Missing Carbon Offset Documentation',
+    description: 'Q3 carbon offset certificates from logistics partners have not been uploaded to the system.',
+    policy: 'Environmental Standards 2025',
+    department: 'Logistics',
+    severity: 'Medium',
+    status: 'In Progress',
+    assignee: 'Sarah Connor',
+    createdAt: '2026-07-10',
+    updatedAt: '2026-07-11',
+  },
+  {
+    id: 'ci2',
+    title: 'Workplace Safety Incident Non-Reporting',
+    description: 'A minor incident on the factory floor was not reported within the mandated 24-hour window.',
+    policy: 'Workplace Safety Standard',
+    department: 'Manufacturing',
+    severity: 'Critical',
+    status: 'Open',
+    assignee: 'John Smith',
+    createdAt: '2026-07-08',
+    updatedAt: '2026-07-08',
+  },
+  {
+    id: 'ci3',
+    title: 'Outdated Employee Handbook',
+    description: 'The employee handbook does not include the latest diversity and inclusion policies.',
+    policy: 'Workplace Diversity & Inclusion Policy',
+    department: 'HR',
+    severity: 'Low',
+    status: 'Resolved',
+    assignee: 'Robert Brown',
+    resolutionNotes: 'Updated the handbook and circulated via email.',
+    createdAt: '2026-06-15',
+    updatedAt: '2026-06-20',
+  },
+  {
+    id: 'ci4',
+    title: 'Vendor Anti-Corruption Screening Failure',
+    description: 'Two new vendors were onboarded without completing the mandatory anti-corruption screening.',
+    policy: 'Global Anti-Corruption and Bribery Policy',
+    department: 'Procurement',
+    severity: 'High',
+    status: 'Open',
+    assignee: 'Jane Doe',
+    createdAt: '2026-07-12',
+    updatedAt: '2026-07-12',
+  }
+];
