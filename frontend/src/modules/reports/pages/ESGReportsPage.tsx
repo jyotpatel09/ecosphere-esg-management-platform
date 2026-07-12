@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useESGReports } from '../hooks/useESGReports';
-import { ESGReport, ESGReportFormData } from '../types/esgReport';
+import type { ESGReport, ESGReportFormData } from '../types/esgReport';
 import { ESGReportTable } from '../components/ESGReportTable';
 import { ESGReportForm } from '../components/ESGReportForm';
 import { ReportDetailsDrawer } from '../components/ReportDetailsDrawer';

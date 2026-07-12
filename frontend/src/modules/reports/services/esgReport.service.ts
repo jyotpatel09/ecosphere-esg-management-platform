@@ -1,4 +1,4 @@
-import { ESGReport, ESGReportFormData } from '../types/esgReport';
+import type { ESGReport, ESGReportFormData } from '../types/esgReport';
 import { initialMockESGReports } from '../constants/mockESGReports';
 
 // Simulated in-memory database for mock environment

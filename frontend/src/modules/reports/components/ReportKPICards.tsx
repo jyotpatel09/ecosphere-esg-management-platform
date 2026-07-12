@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '../../../shared/components/Card';
-import { ReportDashboardSummary } from '../types/reportDashboard';
+import type { ReportDashboardSummary } from '../types/reportDashboard';
 import { FileText, CheckCircle, Clock, Download } from 'lucide-react';
 
 interface ReportKPICardsProps {

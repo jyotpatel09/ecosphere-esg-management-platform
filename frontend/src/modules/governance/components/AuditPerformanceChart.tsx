@@ -7,7 +7,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { AuditPerformancePoint } from '../types/governanceKPI';
+import type { AuditPerformancePoint } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface AuditPerformanceChartProps {

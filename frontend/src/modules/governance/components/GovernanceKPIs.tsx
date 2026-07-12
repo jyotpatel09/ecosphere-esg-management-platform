@@ -1,5 +1,5 @@
 import React from 'react';
-import { GovernanceKPIs as IGovernanceKPIs } from '../types';
+import type { GovernanceKPIs as IGovernanceKPIs } from '../types';
 import { Card, CardContent } from '../../../shared/components/Card';
 import { FileText, AlertTriangle, CalendarClock, ShieldAlert } from 'lucide-react';
 

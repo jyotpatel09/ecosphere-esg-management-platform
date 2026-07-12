@@ -1,4 +1,4 @@
-import { GovernanceDashboardData } from '../types';
+import type { GovernanceDashboardData } from '../types';
 import { mockGovernanceData } from '../constants/mockGovernanceData';
 
 export const governanceService = {

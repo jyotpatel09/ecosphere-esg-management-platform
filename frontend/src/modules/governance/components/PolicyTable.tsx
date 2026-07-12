@@ -1,5 +1,5 @@
 import React from 'react';
-import { Policy } from '../types/policy';
+import type { Policy } from '../types/policy';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Button } from '../../../shared/components/Button';
 import { PolicyStatusBadge } from './PolicyStatusBadge';

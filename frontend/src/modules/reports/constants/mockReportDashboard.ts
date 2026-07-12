@@ -1,4 +1,4 @@
-import { ReportDashboardData } from '../types/reportDashboard';
+import type { ReportDashboardData } from '../types/reportDashboard';
 
 export const mockReportDashboardData: ReportDashboardData = {
   summary: {

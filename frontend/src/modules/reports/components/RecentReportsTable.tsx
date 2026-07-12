@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecentReport, ReportStatus } from '../types/reportDashboard';
+import type { RecentReport, ReportStatus } from '../types/reportDashboard';
 import { Card, CardHeader, CardTitle, CardContent } from '../../../shared/components/Card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Badge } from '../../../shared/components/Badge';

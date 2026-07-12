@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { ComplianceTrendPoint } from '../types/governanceKPI';
+import type { ComplianceTrendPoint } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface ComplianceTrendChartProps {

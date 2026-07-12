@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComplianceIssueItem } from '../types';
+import type { ComplianceIssueItem } from '../types';
 import { Card, CardHeader, CardTitle, CardContent } from '../../../shared/components/Card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Badge } from '../../../shared/components/Badge';

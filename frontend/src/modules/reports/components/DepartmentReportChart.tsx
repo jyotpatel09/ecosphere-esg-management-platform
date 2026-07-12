@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts';
-import { DepartmentReportPoint } from '../types/reportDashboard';
+import type { DepartmentReportPoint } from '../types/reportDashboard';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface DepartmentReportChartProps {

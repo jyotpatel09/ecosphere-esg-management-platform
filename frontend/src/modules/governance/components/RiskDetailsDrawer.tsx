@@ -1,5 +1,5 @@
 import React from 'react';
-import { Risk } from '../types/risk';
+import type { Risk } from '../types/risk';
 import { Modal } from '../../../shared/components/Modal';
 import { RiskSeverityBadge, RiskStatusBadge } from './RiskSeverityBadge';
 import { Button } from '../../../shared/components/Button';

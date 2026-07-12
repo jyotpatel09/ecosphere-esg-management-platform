@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ReportDashboardData } from '../types/reportDashboard';
+import type { ReportDashboardData } from '../types/reportDashboard';
 import { reportDashboardService } from '../services/reportDashboard.service';
 
 export function useReportDashboard() {

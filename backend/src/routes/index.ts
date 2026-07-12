@@ -17,11 +17,11 @@ router.use('/auth', authRoutes);
 router.use('/dashboard', dashboardRoutes);
 
 // Modular Routes Scaffold
-router.use('/api/v2/environment', environmentModuleRoutes);
-router.use('/api/v2/social', socialModuleRoutes);
-router.use('/api/v2/governance', governanceModuleRoutes);
-router.use('/api/v2/gamification', gamificationModuleRoutes);
-router.use('/api/v2/reports', reportsModuleRoutes);
-router.use('/api/v2/settings', settingsModuleRoutes);
+router.use('/v2/environment', environmentModuleRoutes);
+router.use('/v2/social', socialModuleRoutes);
+router.use('/v2/governance', governanceModuleRoutes);
+router.use('/v2/gamification', gamificationModuleRoutes);
+router.use('/v2/reports', reportsModuleRoutes);
+router.use('/v2/settings', settingsModuleRoutes);
 
 export default router;

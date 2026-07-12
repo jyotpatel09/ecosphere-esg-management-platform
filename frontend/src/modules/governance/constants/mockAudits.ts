@@ -1,4 +1,4 @@
-import { Audit } from '../types/audit';
+import type { Audit } from '../types/audit';
 
 export const initialMockAudits: Audit[] = [
   {

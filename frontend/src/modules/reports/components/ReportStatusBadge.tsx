@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-import { ESGReportStatus } from '../types/esgReport';
+import type { ESGReportStatus } from '../types/esgReport';
 
 export function ReportStatusBadge({ status }: { status: ESGReportStatus }) {
   const getVariant = () => {

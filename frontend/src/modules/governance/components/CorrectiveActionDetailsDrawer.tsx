@@ -1,5 +1,5 @@
 import React from 'react';
-import { CorrectiveAction } from '../types/correctiveAction';
+import type { CorrectiveAction } from '../types/correctiveAction';
 import { Modal } from '../../../shared/components/Modal';
 import { CorrectiveActionStatusBadge, CorrectiveActionPriorityBadge } from './CorrectiveActionStatusBadge';
 import { Button } from '../../../shared/components/Button';

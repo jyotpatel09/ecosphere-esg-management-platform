@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-import { PolicyStatus } from '../types/policy';
+import type { PolicyStatus } from '../types/policy';
 
 export function PolicyStatusBadge({ status }: { status: PolicyStatus }) {
   const getVariant = () => {

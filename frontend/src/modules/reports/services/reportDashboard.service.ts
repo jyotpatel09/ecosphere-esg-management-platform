@@ -1,4 +1,4 @@
-import { ReportDashboardData } from '../types/reportDashboard';
+import type { ReportDashboardData } from '../types/reportDashboard';
 import { mockReportDashboardData } from '../constants/mockReportDashboard';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

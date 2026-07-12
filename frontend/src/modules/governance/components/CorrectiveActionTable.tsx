@@ -1,5 +1,5 @@
 import React from 'react';
-import { CorrectiveAction } from '../types/correctiveAction';
+import type { CorrectiveAction } from '../types/correctiveAction';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../shared/components/Table';
 import { Button } from '../../../shared/components/Button';
 import { CorrectiveActionStatusBadge, CorrectiveActionPriorityBadge } from './CorrectiveActionStatusBadge';

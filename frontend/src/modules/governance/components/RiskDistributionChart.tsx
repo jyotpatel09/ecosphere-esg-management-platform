@@ -9,7 +9,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from 'recharts';
-import { RiskDistributionPoint } from '../types/governanceKPI';
+import type { RiskDistributionPoint } from '../types/governanceKPI';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface RiskDistributionChartProps {

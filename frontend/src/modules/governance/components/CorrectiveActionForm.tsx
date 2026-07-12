@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { CorrectiveActionFormData, CorrectiveAction } from '../types/correctiveAction';
+import type { CorrectiveActionFormData, CorrectiveAction } from '../types/correctiveAction';
 import { Button } from '../../../shared/components/Button';
 
 const correctiveActionSchema = z.object({

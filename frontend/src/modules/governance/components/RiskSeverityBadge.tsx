@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
-import { RiskSeverity, RiskStatus } from '../types/risk';
+import type { RiskSeverity, RiskStatus } from '../types/risk';
 
 export function RiskSeverityBadge({ severity }: { severity: RiskSeverity }) {
   const getVariant = () => {

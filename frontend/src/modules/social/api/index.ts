@@ -3,7 +3,7 @@ import type { CSRActivity, SocialKPI, CreateCSRActivityDTO, UpdateCSRActivityDTO
 
 // Depending on the project's setup, this could use an existing configured axios instance
 // from `frontend/src/services/api.ts`. For this module, we use the relative path mapped to the proxy.
-const API_URL = '/api/v2/social';
+const API_URL = 'http://localhost:5000/api/v2/social';
 
 export const socialApi = {
   getActivities: async (): Promise<CSRActivity[]> => {

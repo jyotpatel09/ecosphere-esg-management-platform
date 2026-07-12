@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { CorrectiveAction, CorrectiveActionFormData } from '../types/correctiveAction';
+import type { CorrectiveAction, CorrectiveActionFormData } from '../types/correctiveAction';
 import { correctiveActionService } from '../services/correctiveAction.service';
 
 export function useCorrectiveActions() {

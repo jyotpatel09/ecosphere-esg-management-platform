@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { ReportTrendPoint } from '../types/reportDashboard';
+import type { ReportTrendPoint } from '../types/reportDashboard';
 import { ChartWrapper } from '../../../shared/components/ChartWrapper';
 
 interface ReportTrendChartProps {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { RiskFormData, Risk } from '../types/risk';
+import type { RiskFormData, Risk } from '../types/risk';
 import { Button } from '../../../shared/components/Button';
 
 const riskSchema = z.object({
