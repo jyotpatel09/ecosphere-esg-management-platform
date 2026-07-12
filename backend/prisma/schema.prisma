@@ -22,6 +22,7 @@ model User {
   role         Role          @relation(fields: [roleId], references: [id])
   notifications Notification[]
   activities   ActivityLog[]
+  carbonTransactions CarbonTransaction[]
 }
 
 model Role {
@@ -41,6 +42,8 @@ model Department {
   updatedAt       DateTime          @updatedAt
   users           User[]
   departmentScores DepartmentScore[]
+  carbonTransactions CarbonTransaction[]
+  sustainabilityGoals SustainabilityGoal[]
 }
 
 model Notification {
@@ -105,4 +108,49 @@ model Configuration {
   value       String   // JSON string
   description String?
   updatedAt   DateTime @updatedAt
+}
+
+model EmissionFactor {
+  id          String   @id @default(uuid())
+  source      String   
+  category    String   
+  value       Float    
+  unit        String   
+  region      String?  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  transactions CarbonTransaction[]
+}
+
+model CarbonTransaction {
+  id               String   @id @default(uuid())
+  departmentId     String
+  userId           String
+  emissionFactorId String
+  quantity         Float    
+  date             DateTime 
+  description      String?
+  calculatedCO2e   Float    
+  createdAt        DateTime @default(now())
+
+  department       Department      @relation(fields: [departmentId], references: [id])
+  user             User            @relation(fields: [userId], references: [id])
+  emissionFactor   EmissionFactor  @relation(fields: [emissionFactorId], references: [id])
+}
+
+model SustainabilityGoal {
+  id            String   @id @default(uuid())
+  departmentId  String?  
+  title         String
+  description   String?
+  targetValue   Float    
+  currentValue  Float    @default(0) 
+  metric        String   
+  targetDate    DateTime
+  status        String   @default("ON_TRACK") 
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  department    Department? @relation(fields: [departmentId], references: [id])
 }
