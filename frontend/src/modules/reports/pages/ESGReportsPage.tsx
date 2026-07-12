@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { useESGReports } from '../hooks/useESGReports';
+<<<<<<< HEAD
 import type {  ESGReport, ESGReportFormData  } from '../types/esgReport';
+=======
+import type { ESGReport, ESGReportFormData } from '../types/esgReport';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { ESGReportTable } from '../components/ESGReportTable';
 import { ESGReportForm } from '../components/ESGReportForm';
 import { ReportDetailsDrawer } from '../components/ReportDetailsDrawer';

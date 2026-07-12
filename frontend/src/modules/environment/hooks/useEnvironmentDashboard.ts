@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { environmentApi } from '../api';
 
@@ -24,4 +25,27 @@ export function useEnvironmentDashboard() {
   }, []);
 
   return { data, loading, error, refresh: fetchData };
+=======
+import { useEffect } from 'react';
+import { useEnvironmentStore } from '../services/environmentStore';
+
+export function useEnvironmentDashboard() {
+  const {
+    dashboardData,
+    isDashboardLoading,
+    dashboardError,
+    fetchDashboard,
+  } = useEnvironmentStore();
+
+  useEffect(() => {
+    fetchDashboard();
+  }, [fetchDashboard]);
+
+  return {
+    dashboardData,
+    isDashboardLoading,
+    dashboardError,
+    refetch: fetchDashboard,
+  };
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import type {  Risk  } from '../types/risk';
+=======
+import type { Risk } from '../types/risk';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export const initialMockRisks: Risk[] = [
   {

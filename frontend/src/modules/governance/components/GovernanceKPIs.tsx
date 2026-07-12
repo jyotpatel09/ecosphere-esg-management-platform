@@ -1,8 +1,13 @@
 import React from 'react';
 import type { GovernanceKPIs as IGovernanceKPIs } from '../types';
+<<<<<<< HEAD
 import { Card, CardContent, CardHeader, CardTitle } from '../../../shared/components/Card';
 import { Badge } from '../../../shared/components/Badge';
 import { FileText, AlertTriangle, CalendarClock, ShieldAlert, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+=======
+import { Card, CardContent } from '../../../shared/components/Card';
+import { FileText, AlertTriangle, CalendarClock, ShieldAlert } from 'lucide-react';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 interface GovernanceKPIsProps {
   data: IGovernanceKPIs;

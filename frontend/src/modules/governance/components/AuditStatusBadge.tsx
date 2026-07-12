@@ -1,6 +1,10 @@
 import React from 'react';
 import { Badge } from '../../../shared/components/Badge';
+<<<<<<< HEAD
 import type {  AuditStatus, AuditType  } from '../types/audit';
+=======
+import type { AuditStatus, AuditType } from '../types/audit';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 
 export function AuditStatusBadge({ status }: { status: AuditStatus }) {
   const getVariant = () => {

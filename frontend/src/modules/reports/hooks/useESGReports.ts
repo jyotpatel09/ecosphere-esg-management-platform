@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
+<<<<<<< HEAD
 import type {  ESGReport, ESGReportFormData  } from '../types/esgReport';
+=======
+import type { ESGReport, ESGReportFormData } from '../types/esgReport';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { esgReportService } from '../services/esgReport.service';
 
 export function useESGReports() {

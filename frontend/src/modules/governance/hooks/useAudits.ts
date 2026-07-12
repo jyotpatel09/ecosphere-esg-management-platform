@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
+<<<<<<< HEAD
 import type {  Audit, AuditFormData  } from '../types/audit';
+=======
+import type { Audit, AuditFormData } from '../types/audit';
+>>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 import { auditService } from '../services/audit.service';
 
 export function useAudits() {
