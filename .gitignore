@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+coverage/
+logs/
+*.log
+.env
+.env.local
+.DS_Store
+.editorconfig
+.idea/
+.vscode/

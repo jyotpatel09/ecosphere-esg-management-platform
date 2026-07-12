@@ -1,0 +1,15 @@
+export const PERMISSIONS = {
+  // User Management
+  USER_CREATE: 'USER_CREATE',
+  USER_READ: 'USER_READ',
+  USER_UPDATE: 'USER_UPDATE',
+  USER_DELETE: 'USER_DELETE',
+  
+  // Modules
+  ESG_DATA_WRITE: 'ESG_DATA_WRITE',
+  ESG_DATA_READ: 'ESG_DATA_READ',
+  REPORTS_GENERATE: 'REPORTS_GENERATE',
+  SETTINGS_MANAGE: 'SETTINGS_MANAGE',
+} as const;
+
+export type Permission = keyof typeof PERMISSIONS;

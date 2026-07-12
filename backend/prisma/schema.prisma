@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  password     String
+  firstName    String
+  lastName     String
+  departmentId String?
+  roleId       String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  department   Department?   @relation(fields: [departmentId], references: [id])
+  role         Role          @relation(fields: [roleId], references: [id])
+  notifications Notification[]
+  activities   ActivityLog[]
+}
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique // e.g., ADMIN, MANAGER, EMPLOYEE
+  permissions String[] // JSON or array of strings representing permissions
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Department {
+  id              String            @id @default(uuid())
+  name            String            @unique
+  code            String            @unique
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  users           User[]
+  departmentScores DepartmentScore[]
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  type      String   // e.g., SYSTEM, ALERT, MESSAGE
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  action      String   // e.g., USER_CREATED, CONFIG_UPDATED
+  entityId    String?
+  entityType  String?
+  userId      String?
+  details     String   // JSON string containing detailed changes
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+}
+
+model ActivityLog {
+  id          String   @id @default(uuid())
+  userId      String
+  action      String
+  moduleId    String?  // Module where activity occurred
+  description String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model ESGScore {
+  id              String   @id @default(uuid())
+  environmental   Float    @default(0)
+  social          Float    @default(0)
+  governance      Float    @default(0)
+  overall         Float    @default(0)
+  calculatedAt    DateTime @default(now())
+}
+
+model DepartmentScore {
+  id            String   @id @default(uuid())
+  departmentId  String
+  environmental Float    @default(0)
+  social        Float    @default(0)
+  governance    Float    @default(0)
+  overall       Float    @default(0)
+  period        String   // e.g., "2026-Q1"
+  calculatedAt  DateTime @default(now())
+
+  department    Department @relation(fields: [departmentId], references: [id])
+}
+
+model Configuration {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String   // JSON string
+  description String?
+  updatedAt   DateTime @updatedAt
+}
