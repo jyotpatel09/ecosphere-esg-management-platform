@@ -38,7 +38,7 @@ export function SocialDashboard() {
           <p className="text-sm text-textSecondary mt-1">Manage corporate social responsibility (CSR) initiatives and diversity metrics.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm"><Download className="h-4 w-4 mr-2" /> Export</Button>
+          <Button variant="outline" size="sm" onClick={() => toast.success('Export started')}><Download className="h-4 w-4 mr-2" /> Export</Button>
           <Button variant="primary" size="sm" onClick={handleOpenNew}><Plus className="h-4 w-4 mr-1.5" /> Log Activity</Button>
         </div>
       </div>
@@ -152,7 +152,7 @@ export function SocialDashboard() {
                   </div>
                 );
               })}
-              <Button variant="outline" size="sm" className="w-full mt-2">View Full Report</Button>
+              <Button variant="outline" size="sm" className="w-full mt-2" onClick={() => toast.info('Full report view coming soon')}>View Full Report</Button>
             </div>
           </Card>
         </div>

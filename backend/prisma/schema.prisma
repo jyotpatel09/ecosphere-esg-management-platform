@@ -22,11 +22,8 @@ model User {
   role         Role          @relation(fields: [roleId], references: [id])
   notifications Notification[]
   activities   ActivityLog[]
-<<<<<<< HEAD
   participations EmployeeParticipation[]
-=======
   carbonTransactions CarbonTransaction[]
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 }
 
 model Role {
@@ -48,10 +45,7 @@ model Department {
   departmentScores DepartmentScore[]
   carbonTransactions CarbonTransaction[]
   sustainabilityGoals SustainabilityGoal[]
-<<<<<<< HEAD
   complianceIssues ComplianceIssue[]
-=======
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 }
 
 model Notification {
@@ -118,33 +112,10 @@ model Configuration {
   updatedAt   DateTime @updatedAt
 }
 
-<<<<<<< HEAD
 // -----------------------------------------
 // ENVIRONMENT MODULE
 // -----------------------------------------
 
-model EmissionFactor {
-  id          String   @id @default(uuid())
-  source      String   @unique
-  value       Float
-  unit        String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model CarbonTransaction {
-  id              String   @id @default(uuid())
-  date            DateTime
-  source          String
-  quantity        Float
-  unit            String
-  emissions       Float?   // Calculated
-  departmentId    String
-  department      Department @relation(fields: [departmentId], references: [id])
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-=======
 model EmissionFactor {
   id          String   @id @default(uuid())
   source      String   
@@ -172,23 +143,22 @@ model CarbonTransaction {
   department       Department      @relation(fields: [departmentId], references: [id])
   user             User            @relation(fields: [userId], references: [id])
   emissionFactor   EmissionFactor  @relation(fields: [emissionFactorId], references: [id])
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 }
 
 model SustainabilityGoal {
   id            String   @id @default(uuid())
-<<<<<<< HEAD
+  departmentId  String?  
   title         String
-  description   String
+  description   String?
+  targetValue   Float    
+  currentValue  Float    @default(0) 
+  metric        String   
   targetDate    DateTime
-  targetValue   Float
-  currentValue  Float    @default(0)
-  metric        String
-  status        String   @default("ON_TRACK") // ON_TRACK, AT_RISK, COMPLETED
-  departmentId  String?
-  department    Department? @relation(fields: [departmentId], references: [id])
+  status        String   @default("ON_TRACK") 
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  department    Department? @relation(fields: [departmentId], references: [id])
 }
 
 // -----------------------------------------
@@ -288,18 +258,4 @@ model ESGReport {
   fileUrl     String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-=======
-  departmentId  String?  
-  title         String
-  description   String?
-  targetValue   Float    
-  currentValue  Float    @default(0) 
-  metric        String   
-  targetDate    DateTime
-  status        String   @default("ON_TRACK") 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  department    Department? @relation(fields: [departmentId], references: [id])
->>>>>>> 1e4385f895625aba346926ef66dc3fd5520c4f70
 }

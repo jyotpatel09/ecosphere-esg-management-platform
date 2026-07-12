@@ -4,6 +4,7 @@ import { Badge } from '../shared/components/Badge';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { AlertTriangle, TrendingUp, TrendingDown, Clock, CheckCircle2, ChevronRight, FileText, ArrowRight } from 'lucide-react';
 import { Button } from '../shared/components/Button';
+import { toast } from 'sonner';
 
 const trendData = [
   { month: 'Jan', score: 65, target: 70 }, { month: 'Feb', score: 68, target: 72 }, 
@@ -22,8 +23,8 @@ export function Dashboard() {
           <p className="text-sm text-textSecondary mt-1">Real-time overview of your global ESG performance and pending actions.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm">Download Report</Button>
-          <Button variant="primary" size="sm">Create Action Plan</Button>
+          <Button variant="outline" size="sm" onClick={() => toast.success('Report download started')}>Download Report</Button>
+          <Button variant="primary" size="sm" onClick={() => toast.info('Create Plan feature coming soon')}>Create Action Plan</Button>
         </div>
       </div>
       

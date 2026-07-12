@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../../../shared/components/Card';
-import { Leaf, Droplets, Wind, Zap, FileText, Download, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Leaf, Droplets, Wind, Zap, FileText, RefreshCw, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../../shared/components/Button';
 import { Badge } from '../../../shared/components/Badge';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useEnvironmentDashboard } from '../hooks/useEnvironmentDashboard';
 import { Skeleton } from '../../../shared/components/SkeletonLoader';
 import { EmptyState } from '../../../shared/components/EmptyState';
+import { toast } from 'sonner';
 
 const emissionData = [
   { month: 'Jan', value: 1200, target: 1250 }, { month: 'Feb', value: 1150, target: 1200 }, 
@@ -44,8 +45,8 @@ export function EnvironmentDashboard() {
           <p className="text-sm text-textSecondary mt-1">Facility-level emission tracking, resource efficiency, and compliance status.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={refresh}><Download className="h-4 w-4 mr-2" /> Refresh Data</Button>
-          <Button variant="primary" size="sm"><FileText className="h-4 w-4 mr-2" /> Compliance Report</Button>
+          <Button variant="outline" size="sm" onClick={refresh}><RefreshCw className="h-4 w-4 mr-2" /> Refresh Data</Button>
+          <Button variant="primary" size="sm" onClick={() => toast.info('Compliance Report generation started')}><FileText className="h-4 w-4 mr-2" /> Compliance Report</Button>
         </div>
       </div>
 

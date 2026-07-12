@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../../../shared/components/Card';
 import { Badge } from '../../../shared/components/Badge';
-import { Award, Target, Users, Zap, Trophy, TrendingUp, Download, Plus, ArrowUpRight } from 'lucide-react';
+import { Award, Target, Users, Zap, Trophy, TrendingUp, RefreshCw, Plus, ArrowUpRight } from 'lucide-react';
 import { Button } from '../../../shared/components/Button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { useGamification } from '../hooks/useGamification';
 import { Skeleton } from '../../../shared/components/SkeletonLoader';
+import { toast } from 'sonner';
 
 const engagementData = [
   { week: 'W1', active: 45, target: 40 }, { week: 'W2', active: 52, target: 45 }, 
@@ -40,8 +41,8 @@ export function GamificationDashboard() {
           <p className="text-sm text-textSecondary mt-1">Drive sustainability engagement through targeted challenges and rewards.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={refetch}><Download className="h-4 w-4 mr-2" /> Refresh Data</Button>
-          <Button variant="primary" size="sm"><Plus className="h-4 w-4 mr-1.5" /> New Challenge</Button>
+          <Button variant="outline" size="sm" onClick={refetch}><RefreshCw className="h-4 w-4 mr-2" /> Refresh Data</Button>
+          <Button variant="primary" size="sm" onClick={() => toast.info('New Challenge creation coming soon')}><Plus className="h-4 w-4 mr-1.5" /> New Challenge</Button>
         </div>
       </div>
 
